@@ -68,7 +68,10 @@
     </Compile>
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Soort.cs" />
+    <Compile Include="Model\VraagTagDataService.cs" />
+    <Compile Include="Model\TagDataService.cs" />
     <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\SoortDataService.cs" />
     <Compile Include="Model\VraagDataService.cs" />
     <Compile Include="Model\Vraag.cs" />
     <Compile Include="Model\VraagTag.cs" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SelfQuiz.Model
 {
-    class VraagDataService
+    class SoortDataService
     {
         // Ophalen ConnectionString uit App.config
         private static string connectionString = ConfigurationManager.ConnectionStrings["azure"].ConnectionString;
@@ -21,50 +21,46 @@ namespace SelfQuiz.Model
         // Dit betekent dat de connectie met de database automatisch geopend wordt.
         private static IDbConnection db = new SqlConnection(connectionString);
 
-        public List<Vraag> getVragen()
+        public List<Soort> getSoorten()
         {
             // SQL statement wordt bewaard in een string.
-            string sql = "Select * from Vraag order by naam";
+            string sql = "Select * from Soort order by naam";
             // Uitvoeren van sql statement.
             // Type casten van het generieke return type naar een collectie van Vragen.
-            return (List<Vraag>) db.Query<Vraag>(sql);
+            return (List<Soort>) db.Query<Soort>(sql);
         }
 
-        public void UpdateVraag(Vraag vraag)
+        public void Updatesoort(Soort soort)
         {
             // SQL statement update
-            string sql = "Update Vraag set naam = @naam, antwoord = @antwoord, soortId = @soortId where id = @id";
+            string sql = "Update Soort set naam = @naam where id = @id";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
             db.Execute(sql, new
             {
-                vraag.Naam,
-                vraag.Antwoord,
-                vraag.SoortId
+                soort.Naam
             });
         }
 
-        public void InsertVraag(Vraag vraag)
+        public void InsertSoort(Soort soort)
         {
             // SQL statement insert
-            string sql = "Insert into Vraag(naam, antwoord, soortId) values (@naam, @antwoord, @soortId)";
+            string sql = "Insert into Soort(naam) values (@naam)";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
             db.Execute(sql, new
             {
-                vraag.Naam,
-                vraag.Antwoord,
-                vraag.SoortId
+                soort.Naam
             });
         }
 
-        public void DeleteVraag(Vraag vraag)
+        public void DeleteSoort(Soort soort)
         {
             // SQL statement delete
-            string sql = "Delete Vraag where id = @id";
+            string sql = "Delete Soort where id = @id";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
-            db.Execute(sql, new { vraag.Id });
+            db.Execute(sql, new { soort.Id });
         }
     }
 }
