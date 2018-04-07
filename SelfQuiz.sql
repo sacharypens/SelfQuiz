@@ -21,13 +21,13 @@ GO
 
 CREATE TABLE [selfquiz].[Soort](
     [id] INT IDENTITY(1,1) NOT NULL,
-    [soort] VARCHAR(MAX) NOT NULL,
+    [naam] VARCHAR(MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
 CREATE TABLE [selfquiz].[Vraag](
     [id] INT IDENTITY(1,1) NOT NULL,
-    [vraag] VARCHAR(MAX) NOT NULL,
+    [naam] VARCHAR(MAX) NOT NULL,
     [antwoord] VARCHAR(MAX) NOT NULL,
 	[soortId] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
@@ -36,7 +36,7 @@ CREATE TABLE [selfquiz].[Vraag](
 
 CREATE TABLE [selfquiz].[Tag](
     [id] INT IDENTITY(1,1) NOT NULL,
-    [tag] VARCHAR(MAX) NOT NULL,
+    [naam] VARCHAR(MAX) NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
@@ -51,23 +51,23 @@ CREATE TABLE [selfquiz].[VraagTag](
 
 
 SET IDENTITY_INSERT [selfquiz].[Soort] ON
-INSERT [selfquiz].[Soort]([id], [soort])
+INSERT [selfquiz].[Soort]([id], [naam])
 VALUES (1, 'Naam')
-INSERT [selfquiz].[Soort]([id], [soort])
+INSERT [selfquiz].[Soort]([id], [naam])
 VALUES (2, 'Voorwerp')
 SET IDENTITY_INSERT [selfquiz].[Soort] OFF
 
 SET IDENTITY_INSERT [selfquiz].[Vraag] ON
-INSERT [selfquiz].[Vraag]([id], [vraag], [antwoord], [soortId])
+INSERT [selfquiz].[Vraag]([id], [naam], [antwoord], [soortId])
 VALUES (1, 'Wie heeft het boek "Utopia" geschreven?', 'Thomas More', 1)
-INSERT [selfquiz].[Vraag]([id], [vraag], [antwoord], [soortId])
+INSERT [selfquiz].[Vraag]([id], [naam], [antwoord], [soortId])
 values (2, 'Wat is het bekende boek dat Thomas More schreef in 1516?', 'Utopia', 2)
 SET IDENTITY_INSERT [selfquiz].[Vraag] OFF
 
 SET IDENTITY_INSERT [selfquiz].[Tag] ON
-INSERT [selfquiz].[Tag]([id], [tag])
+INSERT [selfquiz].[Tag]([id], [naam])
 VALUES (1, 'Geschiedenis')
-INSERT [selfquiz].[Tag]([id], [tag])
+INSERT [selfquiz].[Tag]([id], [naam])
 VALUES (2, 'Humanisme')
 SET IDENTITY_INSERT [selfquiz].[Tag] OFF
 

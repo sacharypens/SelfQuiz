@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SelfQuiz.Model
 {
-    class SoortModel : BaseModel
+    class VraagTag : BaseModel
     {
         private int id;
-        private string soort;
+        private int tagId;
+        private int vraagId;
 
         public int Id
         {
@@ -25,16 +26,30 @@ namespace SelfQuiz.Model
             }
         }
 
-        public string Soort
+        public int TagId
         {
             get
             {
-                return soort;
+                return tagId;
             }
 
             set
             {
-                soort = value;
+                tagId = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public int VraagId
+        {
+            get
+            {
+                return vraagId;
+            }
+
+            set
+            {
+                vraagId = value;
                 NotifyPropertyChanged();
             }
         }
