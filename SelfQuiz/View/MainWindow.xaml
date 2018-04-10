@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SelfQuiz"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="SelfQuiz" Height="600" Width="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Style="{StaticResource NavigationStackPanel}" Orientation="Horizontal">
+            <Button Content="Backwards" Style="{StaticResource NavigationButton}"></Button>
+            <Button Content="Forwards" Style="{StaticResource NavigationButton}"></Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Style="{StaticResource MenuStackPanel}">
+            <Button Content="Vraag Toevoegen" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="Vragen Bekijken" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="Quiz Maken" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="Statistieken" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="Instellingen" Style="{StaticResource MenuButton}"></Button>
+            
+        </StackPanel>
+        <Frame Source="TableViewer.xaml" Name="frame" NavigationUIVisibility="Hidden">
+            
+        </Frame>
+    </DockPanel>
 </Window>
