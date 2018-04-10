@@ -19,7 +19,7 @@
             <Button Content="Instellingen" Style="{StaticResource MenuButton}"></Button>
             
         </StackPanel>
-        <Frame Source="TableViewer.xaml" Name="frame" NavigationUIVisibility="Hidden">
+        <Frame Source="VragenViewer.xaml" Name="frame" NavigationUIVisibility="Hidden">
             
         </Frame>
     </DockPanel>
