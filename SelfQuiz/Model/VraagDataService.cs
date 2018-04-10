@@ -24,7 +24,7 @@ namespace SelfQuiz.Model
         public List<Vraag> getVragen()
         {
             // SQL statement wordt bewaard in een string.
-            string sql = "Select * from Vraag order by naam";
+            string sql = "Select * from SelfQuiz.Vraag order by naam";
             // Uitvoeren van sql statement.
             // Type casten van het generieke return type naar een collectie van Vragen.
             return (List<Vraag>) db.Query<Vraag>(sql);
@@ -33,11 +33,12 @@ namespace SelfQuiz.Model
         public void UpdateVraag(Vraag vraag)
         {
             // SQL statement update
-            string sql = "Update Vraag set naam = @naam, antwoord = @antwoord, soortId = @soortId where id = @id";
+            string sql = "Update SelfQuiz.Vraag set naam = @naam, antwoord = @antwoord, soortId = @soortId where id = @id";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
             db.Execute(sql, new
             {
+                vraag.Id,
                 vraag.Naam,
                 vraag.Antwoord,
                 vraag.SoortId
@@ -47,7 +48,7 @@ namespace SelfQuiz.Model
         public void InsertVraag(Vraag vraag)
         {
             // SQL statement insert
-            string sql = "Insert into Vraag(naam, antwoord, soortId) values (@naam, @antwoord, @soortId)";
+            string sql = "Insert into SelfQuiz.Vraag(naam, antwoord, soortId) values (@naam, @antwoord, @soortId)";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
             db.Execute(sql, new
@@ -61,7 +62,7 @@ namespace SelfQuiz.Model
         public void DeleteVraag(Vraag vraag)
         {
             // SQL statement delete
-            string sql = "Delete Vraag where id = @id";
+            string sql = "Delete SelfQuiz.Vraag where id = @id";
 
             // Uitvoeren SQL statement en doorgeven parametercollectie
             db.Execute(sql, new { vraag.Id });

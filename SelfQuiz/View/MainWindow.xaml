@@ -17,6 +17,10 @@
             <Button Content="Quiz Maken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Statistieken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Instellingen" Style="{StaticResource MenuButton}"></Button>
+            <Button Content="Vragen Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
+            <Button Content="Soort Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
+            <Button Content="VraagTag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
+            <Button Content="Tag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             
         </StackPanel>
         <Frame Source="VragenViewer.xaml" Name="frame" NavigationUIVisibility="Hidden">

@@ -28,4 +28,14 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent"/>
     </Style>
+
+    <Style x:Key="MenuButtonTabel" TargetType="Button">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Margin" Value="7" />
+        <Setter Property="BorderBrush" Value="Yellow"/>
+        <Setter Property="Foreground" Value="Yellow"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
 </ResourceDictionary>

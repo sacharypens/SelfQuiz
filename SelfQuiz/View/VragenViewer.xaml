@@ -8,9 +8,48 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Vragen Viewer">
-
+    <Page.Resources>
+        <viewmodel:VraagViewModel x:Key="VraagViewModel"/>
+    </Page.Resources>
     
-    <Grid>
-        
+    <Grid DataContext="{StaticResource VraagViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="0"
+                  ItemsSource="{Binding Vragen}"
+                  SelectionMode="Single"
+                  SelectedItem="{Binding CurrentVraag}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="250"
+                                    Header="Vraag"
+                                    DisplayMemberBinding="{Binding Naam}" />
+                    <GridViewColumn Width="100"
+                                    Header="Antwoord"
+                                    DisplayMemberBinding="{Binding Antwoord}" />
+                    <GridViewColumn Width="50"
+                                    Header="Soort Id"
+                                    DisplayMemberBinding="{Binding SoortId}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox Margin="10,30,10,10" 
+                     Text="{Binding CurrentVraag.Naam}" />
+            <TextBox  Margin="10,10,10,10" 
+                      Text="{Binding CurrentVraag.Antwoord}" />
+            <TextBox  Margin="10,10,10,10" 
+                      Text="{Binding CurrentVraag.SoortId}" />
+
+            <Button Margin="10,100,10,10" Content="Wijzigen"
+                    Command="{Binding WijzigenCommand}" />
+            <Button Margin="10,0,10,10" Content="Verwijderen"
+                    Command="{Binding VerwijderenCommand}" />
+            <Button Margin="10,0,10,10" Content="Toevoegen"
+                    Command="{Binding ToevoegenCommand}" />
+        </StackPanel>
     </Grid>
 </Page>
