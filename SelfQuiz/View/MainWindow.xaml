@@ -17,8 +17,12 @@
             <Button Content="Quiz Maken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Statistieken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Instellingen" Style="{StaticResource MenuButton}"></Button>
-            <Button Content="Vragen Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
-            <Button Content="Soort Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
+            <Button Style="{StaticResource MenuButtonTabel}">
+                <Hyperlink NavigateUri="View/VragenViewer.xaml">Vragen Tabel</Hyperlink>
+            </Button>
+            <Button Style="{StaticResource MenuButtonTabel}">
+                <Hyperlink NavigateUri="View/SoortenViewer.xaml">Soort Tabel</Hyperlink>
+            </Button>
             <Button Content="VraagTag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             <Button Content="Tag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             

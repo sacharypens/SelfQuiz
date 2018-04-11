@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SelfQuiz.View
 {
     /// <summary>
-    /// Interaction logic for VragenViewer.xaml
+    /// Interaction logic for TableViewer.xaml
     /// </summary>
-    public partial class VragenViewer : Page
+    public partial class SoortenViewer : Page
     {
-        public VragenViewer()
+        public SoortenViewer()
         {
             InitializeComponent();
         }

@@ -64,6 +64,9 @@
     <Compile Include="ViewModel\TagViewModel.cs" />
     <Compile Include="ViewModel\VraagTagViewModel.cs" />
     <Compile Include="ViewModel\VraagViewModel.cs" />
+    <Compile Include="View\SoortenViewer.xaml.cs">
+      <DependentUpon>SoortenViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\VragenViewer.xaml.cs">
       <DependentUpon>VragenViewer.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\SoortenViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\VragenViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
