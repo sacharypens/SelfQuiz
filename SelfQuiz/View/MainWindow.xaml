@@ -4,12 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SelfQuiz"
+        xmlns:viewmodel="clr-namespace:SelfQuiz.ViewModel"
         mc:Ignorable="d"
         Title="SelfQuiz" Height="600" Width="800">
-    <DockPanel>
+    <Window.Resources>
+        <viewmodel:MainWindowViewModel x:Key="MainWindowViewModel"/>
+    </Window.Resources>
+    <DockPanel DataContext="{StaticResource MainWindowViewModel}">
         <StackPanel DockPanel.Dock="Top" Style="{StaticResource NavigationStackPanel}" Orientation="Horizontal">
             <Button Content="Backwards" Style="{StaticResource NavigationButton}"></Button>
             <Button Content="Forwards" Style="{StaticResource NavigationButton}"></Button>
+            <ComboBox Name="ComboboxPages" SelectedIndex="{Binding SelectedIdex}">
+                <ComboBoxItem>Vragen</ComboBoxItem>
+                <ComboBoxItem>Soorten</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <StackPanel DockPanel.Dock="Left" Style="{StaticResource MenuStackPanel}">
             <Button Content="Vraag Toevoegen" Style="{StaticResource MenuButton}"></Button>
@@ -17,17 +25,13 @@
             <Button Content="Quiz Maken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Statistieken" Style="{StaticResource MenuButton}"></Button>
             <Button Content="Instellingen" Style="{StaticResource MenuButton}"></Button>
-            <Button Style="{StaticResource MenuButtonTabel}">
-                <Hyperlink NavigateUri="View/VragenViewer.xaml">Vragen Tabel</Hyperlink>
-            </Button>
-            <Button Style="{StaticResource MenuButtonTabel}">
-                <Hyperlink NavigateUri="View/SoortenViewer.xaml">Soort Tabel</Hyperlink>
-            </Button>
+            <Button Content="Vraag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
+            <Button Content="Soort Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             <Button Content="VraagTag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             <Button Content="Tag Tabel" Style="{StaticResource MenuButtonTabel}"></Button>
             
         </StackPanel>
-        <Frame Source="VragenViewer.xaml" Name="frame" NavigationUIVisibility="Hidden">
+        <Frame Source="{Binding FrameSource}" Name="frame" NavigationUIVisibility="Hidden">
             
         </Frame>
     </DockPanel>
